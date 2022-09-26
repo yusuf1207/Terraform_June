@@ -1,23 +1,19 @@
-variable "image_id" {
-  type = string
+variable "env" {
+  type        = string
+  description = "This variable represents an environment"
+  default     = "dev"
 }
 
-variable "availability_zone_names" {
-    type    = list(string)
-    default = ["us-west-1a"]
+variable "ami" {
+  type        = string
+  description = "Image ID for EC2 Instance"
+  default     = "ami-0147bd0a180d521bd"
 }
 
-variable "docker_ports" {
-  type  = list(object({
-      internal = number
-      external = number
-      protocol = string
-  }))
-  default = [
-    {
-      internal = 8300
-      external = 8300
-      protocol = "tcp"
-    }
-  ]
+variable "instance_type" {
+  type        = string
+  description = "Capacity"
+  default     = "t2.micro"
 }
+
+# Variables are for re-useble purpose, something is repeated over and over again.

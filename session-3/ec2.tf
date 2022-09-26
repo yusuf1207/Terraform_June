@@ -1,8 +1,9 @@
 resource "aws_instance" "my_ec2" {
-  ami           = "ami-0147bd0a180d521bd" #String, Hard Coded Value
-  instance_type = "t2.micro"
+  ami           = var.ami # var = variable, variable name
+  instance_type = var.instance_type
   tags = {
-    Name = "test"
+    Name = var.env
   }
   vpc_security_group_ids = [aws_security_group.my_sg.id]
 }
+
