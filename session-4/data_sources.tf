@@ -14,5 +14,4 @@ filter {
 
 //aws_ami.amazon_linux_2.id = Terraform thinks it is a resource
 //data.aws_ami.amazon_linux_2.id = Terraform thinks it is data source
-# Fetch the date from an existing resource, date can be attribute that resource  
-//
+# Fetch the date from an existing resource, date can be attribute that resource
