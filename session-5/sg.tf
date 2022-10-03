@@ -5,12 +5,13 @@ resource "aws_security_group" "my_sg" {
 }
 
 resource "aws_security_group_rule" "ingress_ssh" {
-  type              = "ingress" #Hard Coded
-  from_port         = 22
-  to_port           = 22
+  count             = 3
+  type              = "ingress"                                   #Hard Coded
+  from_port         = element(var.ec2_inbound_rules, count.index) // count.index = 0, 1, 2  count = 3
+  to_port           = element(var.ec2_inbound_rules, count.index)
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]               # [] = list
-  security_group_id = aws_security_group.my_sg.id #first_label.second_lable.attribute
+  cidr_blocks       = element(var.ec2_inbound_rules_cidr, count.index) # [] = list
+  security_group_id = aws_security_group.my_sg.id                      #first_label.second_lable.attribute
 }
 
 resource "aws_security_group_rule" "egress" {
