@@ -8,5 +8,5 @@ terraform {
 }
 
 # Remote backend is a plugin. Plugin is a feature
-# you cannot pass or use any variables for Backend Configuration.
+# you cannot pass or use any variables for Backend Configuration. or Block. 
 # We use Terraform lock = DynamoDB Table 
