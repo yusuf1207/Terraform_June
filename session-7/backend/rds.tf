@@ -13,3 +13,6 @@ resource "aws_db_instance" "default" {
 }
 
 // dev-rds-instance
+
+//dev = true
+//prod = false
