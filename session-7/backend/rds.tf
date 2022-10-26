@@ -1,4 +1,4 @@
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "wordpress" {
   allocated_storage    = 10
   engine               = "mysql"
   engine_version       = "5.7"
@@ -7,12 +7,19 @@ resource "aws_db_instance" "default" {
   username             = "admin"
   password             = random_password.db_password.result
   identifier           = "${var.env}-rds-instance"    //format(%s-rds-instance, var.env)             # NAME of your RDS instance, not a database
-  publicly_accessible  = 
-  skip_final_snapshot  = 
-  final_snapshot_identifier = 
+  publicly_accessible  = var.env == "dev" ? true : false
+  skip_final_snapshot  = var.env == "dev" ? true : false
+  final_snapshot_identifier = var.env == "dev" ? null: "{var.env}-db-snapshot"
 }
 
-// dev-rds-instance
+// Dev
+// skip_final_snapshot = true
+// final_snapshot_identifier = empty(null)
 
-//dev = true
-//prod = false
+// qa
+// skip_final_snapshot = false
+// final_snapshot = qa-db-snapshot
+
+// prod
+// skip_final_snapshot = false
+// final_snapshot = prod-db-snapshot 
