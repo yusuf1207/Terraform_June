@@ -1,7 +1,7 @@
 # This feature is called data sourcing the remote backend
 # Data Source only fetches the data from outputs
 
-date "terraform_remote_state" "backend" {
+data "terraform_remote_state" "backend" {
     backend = "s3"
     config = {
         bucket         = "terraform-2022-backend-do-not-delete"
