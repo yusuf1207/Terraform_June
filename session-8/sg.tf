@@ -4,7 +4,7 @@ resource "aws_security_group" "my_sg" {
   vpc_id      = "vpc-033585edc6f00d9fc"
   tags = {
     Name = replace(local.name, "rtype", "web-sg")
-    Tags = local.common_tags
+    Tags = merge(local.common_tags, { Name = replace(local.name, "rtype", "web-sg") } )
   }
 }
 
