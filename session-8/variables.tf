@@ -5,5 +5,5 @@ variable "env" {
 
 variable "instance_type" {
     type = string
-    default = "t2_micro"
+    default = "t2.micro"
 }
