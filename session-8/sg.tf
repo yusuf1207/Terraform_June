@@ -2,14 +2,10 @@ resource "aws_security_group" "my_sg" {
   name        = replace(local.name, "rtype", "web-sg")
   description = "This is a test security group"
   vpc_id      = "vpc-033585edc6f00d9fc"
-  tags = {
-    Name = replace(local.name, "rtype", "web-sg")
-    Tags = merge(local.common_tags, { Name = replace(local.name, "rtype", "web-sg") } )
-  }
+  tags = merge(local.common_tags, { Name = replace(local.name, "rtype", "web-sg") } )
 }
 
-resource "aws_security_group_rule" "ingress_ssh" {
-  count             = length(var.ec2_inbound_rules)               
+resource "aws_security_group_rule" "ingress_ssh" {              
   type              = "ingress"                                  
   from_port         = 22 
   to_port           = 22
@@ -19,7 +15,6 @@ resource "aws_security_group_rule" "ingress_ssh" {
 }
 
 resource "aws_security_group_rule" "ingress_web" {
-  count             = length(var.ec2_inbound_rules)               
   type              = "ingress"                                  
   from_port         = 80 
   to_port           = 80
