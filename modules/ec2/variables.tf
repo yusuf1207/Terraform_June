@@ -10,3 +10,8 @@ variable "env" {
     type = string
     description = "This represents the environment"
 }
+variable "project" {
+    type = string
+    description = "This represents the project"
+  
+}
