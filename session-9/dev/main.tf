@@ -19,3 +19,6 @@ module "s3" {
     source = "../../modules/s3"
     env = "dev"
 }
+
+# Reference to Resource = first_label.second_label.attribute
+# Reference to Module   = ?  
