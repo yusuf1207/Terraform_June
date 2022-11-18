@@ -6,4 +6,5 @@ module "ec2" {
     ami = "ami-09208e69ff3feb1db"
     instance_type = "t2.micro"
     env = "dev"
+    project = "app-1"
 }
