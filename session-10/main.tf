@@ -20,8 +20,8 @@ module "vpc" {
   }
 }
 
-// 2. Github Public or Private Repostiories
-module "s3" {
-    source = "github.com/aKumoSolutions/terraform-march-2022/modules/s3"
-    env = "dev"
-}
+# // 2. Github Public or Private Repostiories
+# module "s3" {
+#     source = "github.com/aKumoSolutions/terraform-march-2022/modules/s3"
+#     env = "dev"
+# }
